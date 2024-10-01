@@ -505,6 +505,10 @@
 </div>
     </footer>
    </div>
+
+   <button id="backToTopBtn" class="hidden fixed bottom-5 right-5 p-2 rounded-full bg-gray-700 text-white hover:bg-gray-600 transition-colors duration-300">
+   <i class="fa-solid fa-arrow-up h-5 w-5"></i>
+</button>
 </body>
 
 <script>
@@ -534,6 +538,25 @@ menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
     
     // You can also add logic here to open/close the actual menu
+});
+
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) { // Show button after scrolling 300px
+        backToTopBtn.classList.remove('hidden');
+    } else {
+        backToTopBtn.classList.add('hidden');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 
